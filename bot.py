@@ -13,18 +13,6 @@ giphy_token = 'ox3jdJyHR0uHjuDiZm6wa1hJXphLmus3'
 api_instance = giphy_client.DefaultApi()
 bot = commands.Bot(command_prefix='!')
 
-@bot.event
-async def on_message(message):
-    if message.author == bot.user:
-        return
-    message.content = message.content.lower()
-    if message.content.startswith('hello'):
-        await message.channel.send("Hey guys TheEar here!!")
-    if message.content.startswith('anthony'):
-        await message.channel.send("I sameer Bahamla habe a massive crush on Anthony Bhamla")
-    await bot.process_commands(message)
-
-
 
 @bot.event
 async def on_ready():
@@ -48,45 +36,13 @@ async def ping(ctx):
     await ctx.send(f'Heres my Ping : {bot.latency * 1000}')
 
 
-@bot.command()
-async def max(ctx):
-    await ctx.send(file=discord.File('fff.png'))
-@bot.command()
-async def dad(ctx):
-    await ctx.send(file=discord.File('shit.png'))
-@bot.command()
-async def dad2(ctx):
-    await ctx.send(file=discord.File('sap.png'))
-@bot.command()
-async def dad3(ctx):
-    await ctx.send(file=discord.File('w2.png'))
-@bot.command()
-async def dad4(ctx):
-    await ctx.send(file=discord.File('yard.png'))
-
-
-@bot.command()
-async def ace(ctx):
-    await ctx.send(file=discord.File('jjj.png'))
-
-@bot.command()
-async def scary(ctx):
-    await ctx.send(file=discord.File('sca.png'))
-
-@bot.command(aliases=["blackman", 'bigblack'])
-async def hunty(ctx):
-    await ctx.send(file=discord.File('hunt.png'))
-
-@bot.command(aliases=["funk"])
-async def funkmasterflex(ctx):
-    await ctx.send(file=discord.File('tub.png'))
 
 @bot.command(aliases =['send'])
 async def send_anonymous_dm(ctx, member: discord.Member, *, content):
     for i in range(25):
-        channel = await member.create_dm() # creates a DM channel for mentioned user
-        await channel.send(content) # send whatever in the content to the mentioned user.
-# Usage: !send_anonymous_dm @mention_user <your message here>
+        channel = await member.create_dm() 
+        await channel.send(content) 
+
 
 
 async def search_gifs(query):
